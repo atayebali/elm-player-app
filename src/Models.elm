@@ -1,12 +1,13 @@
 module Models exposing (..)
+import RemoteData exposing (WebData)
 
 type alias Model =
-    { players: List Player }
+    { players: WebData (List Player) } -- Array of players from the web
 
 
 initialModel: Model
 initialModel =
-    { players = [ Player "1" "Sam" 1 ]
+    { players = RemoteData.Loading  -- While fetch is happening.
 
     }
 
